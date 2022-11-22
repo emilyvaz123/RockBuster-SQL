@@ -4,7 +4,7 @@ world. Facing stiff competition from streaming services such as Netflix and Amaz
 the Rockbuster Stealth management team is planning to use its existing movie licenses to
 launch an online video rental service in order to stay competitive.
 
-SQL queries to extract data from RockBuster Stealth LLC database regarding customers/revenue
+SQL queries to extract data from RockBuster Stealth LLC database regarding customers/revenue:
 Which movies contributed the most/least to revenue gain?
 What was the average rental duration for all videos?
 Which countries are Rockbuster customers based in?
