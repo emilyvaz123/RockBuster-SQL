@@ -1,0 +1,33 @@
+Common Table Expression to find the average amount paid by the top 5 customers: 
+
+SELECT SUM(p.amount) AS sum_of_payment, c.first_name, c.last_name, city.city, country.country
+FROM customer AS c
+INNER JOIN payment AS p ON c.customer_id= p.customer_id
+INNER JOIN address AS a ON c.address_id = a.address_id
+INNER JOIN city ON a.city_id = city.city_id 
+INNER JOIN country ON city.country_id = country.country_id 
+WHERE city.city IN 
+( -- THIS FINDS THE LIST OF THE TOP 10 CITIES IN THE TOP 10 COUNTRIES
+Select city
+FROM customer
+INNER JOIN address ON customer.address_id = address.address_id 
+INNER JOIN city ON city.city_id = address.city_id
+INNER JOIN country ON city.country_id = country.country_id
+WHERE country.country IN 
+( -- THIS FINDS THE LIST OF TOP 10 COUNTRIES
+Select country.country
+FROM customer AS c 
+INNER JOIN address AS a ON c.address_id = a.address_id 
+INNER JOIN city ON a.city_id = city.city_id
+INNER JOIN country ON country.country_id = city.country_id
+GROUP BY country.country
+ORDER BY count(country.country) DESC
+LIMIT 10
+) -- END OF TOP 10 COUNTRIES QUERY
+GROUP BY city.city
+ORDER BY COUNT(country.country) DESC
+LIMIT 10
+) -- END OF TO 10 CITIES IN TOP 10 COUNTRIES
+GROUP BY c.customer_id, c.first_name, c.last_name, city.city, country.country 
+ORDER BY SUM(p.amount) DESC 
+LIMIT 5
