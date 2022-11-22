@@ -9,7 +9,7 @@ launch an online video rental service in order to stay competitive.
 
 *SQL queries used to extract data from RockBuster Stealth LLC database regarding customers/revenue.
 
-Key Questions
+Key Questions:
 
 Which movies contributed the most/least to revenue gain?
 
@@ -21,6 +21,6 @@ Where are customers with a high lifetime value based?
 
 Do sales figures vary between geographic regions?
 
-Tableau Dashboard 
+Tableau Dashboard:
 
 https://public.tableau.com/app/profile/emily.oliveira.vaz/viz/RockbusterStealthLLCDataVisualizations/Story1?publish=yes 
